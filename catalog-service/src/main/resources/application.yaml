@@ -8,37 +8,6 @@ spring:
     active: dev
 ## Config repo ##
   config:
-    enabled: true
     import: optional:configserver:http://root:pass@localhost:8888
-### h2 console ##
-#  h2:
-#    console:
-#      enabled: true
-#      path: /h2
-#  datasource:
-#    username: root
-#    password: pass
-#    url: jdbc:h2:mem:catalog
-## Hibernate ##
-#  jpa:
-#    hibernate:
-#      ddl-auto: none
-#    properties:
-#      hibernate:
-#        show_sql: true
-#        format_sql: true
-#
-#
-### EUREKA ##
-#eureka:
-#  instance:
-#    instance-id: ${spring.application.name}:${server.port}
-#    lease-expiration-duration-in-seconds: 5
-#    lease-renewal-interval-in-seconds: 2
-#  client:
-#    enabled: true
-#    serviceUrl:
-#      defaultZone: http://localhost:8761/eureka/
-
 
 
