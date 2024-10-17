@@ -3,7 +3,7 @@ package com.example.productservice.controller;
 import com.example.productservice.dto.ProductDTO;
 import com.example.productservice.exception.IdNotValidException;
 import com.example.productservice.service.ProductService;
-import feign.RetryableException;
+import feign.FeignException;
 import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.RequiredArgsConstructor;
@@ -47,7 +47,7 @@ public class ProductController {
                 .body(availableProducts.toString());
     }
 
-    private ResponseEntity<String> fallback (String param, RetryableException exception) {
+    private ResponseEntity<String> fallback (String param, FeignException exception) {
         log.error("Service call have thrown " + exception.getClass().getCanonicalName());
 
         return ResponseEntity
