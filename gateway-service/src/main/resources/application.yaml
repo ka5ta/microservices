@@ -9,3 +9,4 @@ spring:
 ## Config repo ##
   config:
     import: optional:configserver:http://root:pass@localhost:8888
+

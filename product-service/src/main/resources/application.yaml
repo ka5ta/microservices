@@ -9,7 +9,37 @@ spring:
 ## Config repo ##
   config:
     import: optional:configserver:http://root:pass@localhost:8888
-
+### OpenFeign ##
+#  cloud:
+#    openfeign:
+#      client:
+#        config:
+#          default:
+#            connectTimeout: 3000
+#            readTimeout: 3000 # 3 sec wait
+#            loggerLevel: FULL
+#
+### Actuator ##
+#management:
+#  endpoints.web.exposure.include:
+#    - '*'
+#  endpoint.health.show-details: always
+#  ## Circut Breaker ##
+#  health.circuitbreakers.enabled: true
+#
+#resilience4j.circuitbreaker:
+#  configs:
+#    default:
+#      registerHealthIndicator: true
+#      minimumNumberOfCalls: 5 # after 5 requests, calculates rate failures
+#      failureRateThreshold: 50 # If Half of record fails, then state OPEN
+#      waitDurationInOpenState: 15s # after 15 s state changed from OPEN to HALF-OPEN
+#      permittedNumberOfCallsInHalfOpenState: 3 # 3 calls from  HALF-OPEN to OPEN
+#      automaticTransitionFromOpenToHalfOpenEnabled: true
+#      eventConsumerBufferSize: 5 # stores 5 last events in /actuator/circuitbreakerevents
+#      recordExceptions:
+#        - feign.RetryableException
+#        - com.example.productservice.exception.IdNotValidException
 
 
 
