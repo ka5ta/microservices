@@ -10,5 +10,10 @@ spring:
   config:
     import: optional:configserver:http://root:pass@localhost:8888
 
-
-
+## circuitbreaker exceptions ##
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      recordExceptions:
+        - feign.FeignException
+        - com.example.productservice.exception.IdNotValidException
