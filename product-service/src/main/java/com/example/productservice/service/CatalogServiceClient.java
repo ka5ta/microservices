@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@FeignClient(value = "catalog-service", url = "http://localhost:8081")
+@FeignClient(value = "catalog-service")
 public interface CatalogServiceClient {
 
     @GetMapping("/products/{id}")
