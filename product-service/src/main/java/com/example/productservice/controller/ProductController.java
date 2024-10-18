@@ -40,11 +40,11 @@ public class ProductController {
 
     @CircuitBreaker(name = "productsBySku", fallbackMethod = "fallback")
     @GetMapping
-    public ResponseEntity<String> getAvailableProducts(@RequestParam String sku) {
+    public ResponseEntity<List<ProductDTO>> getAvailableProducts(@RequestParam String sku) {
         List<ProductDTO> availableProducts = productService.getAvailableProducts(sku);
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(availableProducts.toString());
+                .body(availableProducts);
     }
 
     private ResponseEntity<String> fallback (String param, FeignException exception) {
